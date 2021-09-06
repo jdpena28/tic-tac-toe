@@ -2,9 +2,11 @@ const cells = Array.from(document.getElementsByClassName('cell'))
 let textWinner = document.querySelector('#text-winner')
 let textTurn = document.querySelector('p.players-turn')
 let player = 'X' 
+let counter = 1
 let thereIsAWinner = false
 
 const cellClicked = () => {
+    textWinner.textContent = "Let's game it on"
     cells.forEach(cell => {
         cell.addEventListener('click',onGame)
     });
@@ -19,13 +21,18 @@ function onGame (index) {
             checkBoard(player)
             player = 'O'
             textTurn.textContent = `${player} Turn!`
+            console.log(counter++)
         }
         else if (player==='O') {
             index.target.textContent = player;
             checkBoard(player)
             player = 'X'
             textTurn.textContent = `${player} Turn!`
+            console.log(counter++)
         }
+    }
+    else if (cells[indices].textContent!== '' && counter !== 10 && thereIsAWinner===false) {
+        alert("Box already Contain")
     }
     else if (thereIsAWinner===true) {
         cells.forEach(element => {
@@ -33,6 +40,14 @@ function onGame (index) {
             textTurn.textContent = `X Turn!`
             textWinner.textContent = "Let's game it on"
             thereIsAWinner = false
+            counter = 1
+        })
+    }
+    else {
+        textWinner.textContent = 'DRAW'
+        cells.forEach(cell => {
+            cell.textContent = null
+            cell.addEventListener('click',cellClicked)
         });
     }
 }
