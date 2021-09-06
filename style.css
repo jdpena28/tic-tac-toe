@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;300;400;500;600&family=Syne+Mono&display=swap');
+/* font-family: 'Source Code Pro', monospace; 300 400 500 600
+font-family: 'Syne Mono', monospace; 200 */
+body {
+    background-color: #222222
+}
+* {
+    color: whitesmoke;
+}
+h1,h2 {
+    text-align: center;
+}
+h1 {
+    font-family: 'Syne Mono', monospace;
+    font-size: 3.1rem;
+}
+h2 {
+    font-family: 'Source Code Pro',monospace;
+    color: #ff6865
+}
+#board {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 1.2rem 1.2rem;
+    margin: auto;
+    height: auto;
+    width: 300px;
+}
+.cell {
+    height: 90px;
+    width: 90px;
+    border-radius: 1.2rem;
+    font-family: 'Source Code Pro',monospace;
+    font-size: 3.6rem;
+    text-align: center;
+    font-weight: 600;
+    line-height: 90px;
+    background-color: #ff9526
+}
+.players-turn {
+    font-family: 'Source Code Pro',monospace;
+    font-size: 3.1rem;
+    text-align: center;
+}
