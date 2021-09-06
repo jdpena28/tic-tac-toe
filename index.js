@@ -2,7 +2,6 @@ const cells = Array.from(document.getElementsByClassName('cell'))
 let textWinner = document.querySelector('#text-winner')
 let textTurn = document.querySelector('p.players-turn')
 let player = 'X' 
-let countTheTurns = 1
 let thereIsAWinner = false
 
 const cellClicked = () => {
@@ -35,7 +34,7 @@ function onGame (index) {
             textWinner.textContent = "Let's game it on"
             thereIsAWinner = false
         });
-    } 
+    }
 }
 function checkBoard (whosPlayer) {
     if(cells[2].textContent===whosPlayer && cells[4].textContent===whosPlayer && cells[6].textContent===whosPlayer) {
@@ -86,8 +85,7 @@ function checkBoard (whosPlayer) {
             thereIsAWinner = true
         }
     }
+    
 }
-
-
 cellClicked()
 
