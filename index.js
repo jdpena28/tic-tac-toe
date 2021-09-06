@@ -38,6 +38,10 @@ function onGame (index) {
     } 
 }
 function checkBoard (whosPlayer) {
+    if(cells[2].textContent===whosPlayer && cells[4].textContent===whosPlayer && cells[6].textContent===whosPlayer) {
+        textWinner.textContent = `${whosPlayer} is the Winner`
+        thereIsAWinner = true
+    }
     //check diagonal,vertical and horizontal starting point at top-right div
     if(cells[0].textContent===whosPlayer) {
         if(cells[1].textContent===whosPlayer && cells[2].textContent===whosPlayer)
