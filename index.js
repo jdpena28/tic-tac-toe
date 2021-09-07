@@ -18,17 +18,18 @@ function onGame (index) {
     if (thereIsAWinner===false && cells[indices].textContent==='') {
         if (player === 'X') {
             index.target.textContent = player;
+            console.log(counter++)
             checkBoard(player)
             player = 'O'
             textTurn.textContent = `${player} Turn!`
-            console.log(counter++)
         }
         else if (player==='O') {
             index.target.textContent = player;
+            console.log(counter++)
             checkBoard(player)
             player = 'X'
             textTurn.textContent = `${player} Turn!`
-            console.log(counter++)
+            
         }
     }
     else if (cells[indices].textContent!== '' && counter !== 10 && thereIsAWinner===false) {
@@ -47,16 +48,13 @@ function onGame (index) {
         textWinner.textContent = 'DRAW'
         cells.forEach(cell => {
             cell.textContent = null
+            counter=1
             cell.addEventListener('click',cellClicked)
         });
     }
 }
 function checkBoard (whosPlayer) {
-    if(cells[2].textContent===whosPlayer && cells[4].textContent===whosPlayer && cells[6].textContent===whosPlayer) {
-        textWinner.textContent = `${whosPlayer} is the Winner`
-        thereIsAWinner = true
-    }
-    //check diagonal,vertical and horizontal starting point at top-right div
+    //check vertical and horizontal starting point at top-right div
     if(cells[0].textContent===whosPlayer) {
         if(cells[1].textContent===whosPlayer && cells[2].textContent===whosPlayer)
         {
@@ -87,20 +85,18 @@ function checkBoard (whosPlayer) {
             thereIsAWinner = true
         }
     }
-    //check the cross-section of board
-    else if (cells[4].textContent===whosPlayer) {
-        if(cells[3].textContent===whosPlayer && cells[5].textContent===whosPlayer)
-        {
+    //check the diagonal-section of board
+    else if (cells[2].textContent===whosPlayer && cells[4].textContent===whosPlayer && cells[6].textContent===whosPlayer) {
             textWinner.textContent = `${whosPlayer} is the Winner`
             thereIsAWinner = true
-        }
-        else if(cells[1].textContent===whosPlayer && cells[7].textContent===whosPlayer)
-        {
-            textWinner.textContent = `${whosPlayer} is the Winner`
-            thereIsAWinner = true
-        }
     }
-    
+    else if (cells[1].textContent===whosPlayer && cells[4].textContent===whosPlayer && cells[7].textContent===whosPlayer) {
+        textWinner.textContent = `${whosPlayer} is the Winner`
+        thereIsAWinner = true
+    }
+    else if (cells[3].textContent===whosPlayer && cells[4].textContent===whosPlayer && cells[5].textContent===whosPlayer) {
+        textWinner.textContent = `${whosPlayer} is the Winner`
+        thereIsAWinner = true
+    }
 }
 cellClicked()
-
