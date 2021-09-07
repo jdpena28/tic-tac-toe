@@ -72,31 +72,127 @@ function checkBoard (whosPlayer) {
             thereIsAWinner = true
         }
     }
-    //check diagonal,vertical and horizontal starting point at bottom-right div
-    else if (cells[8].textContent===whosPlayer) {
-        if(cells[6].textContent===whosPlayer && cells[7].textContent===whosPlayer)
+    if(cells[1].textContent===whosPlayer) {
+        if(cells[0].textContent===whosPlayer && cells[2].textContent===whosPlayer)
         {
             textWinner.textContent = `${whosPlayer} is the Winner`
             thereIsAWinner = true
         }
-        else if(cells[2].textContent===whosPlayer && cells[5].textContent===whosPlayer)
+        else if(cells[4].textContent===whosPlayer && cells[7].textContent===whosPlayer)
         {
             textWinner.textContent = `${whosPlayer} is the Winner`
             thereIsAWinner = true
         }
     }
-    //check the diagonal-section of board
-    else if (cells[2].textContent===whosPlayer && cells[4].textContent===whosPlayer && cells[6].textContent===whosPlayer) {
+    if(cells[2].textContent===whosPlayer) {
+        if(cells[0].textContent===whosPlayer && cells[1].textContent===whosPlayer)
+        {
             textWinner.textContent = `${whosPlayer} is the Winner`
             thereIsAWinner = true
+        }
+        else if(cells[5].textContent===whosPlayer && cells[8].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+        else if(cells[4].textContent===whosPlayer && cells[6].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
     }
-    else if (cells[1].textContent===whosPlayer && cells[4].textContent===whosPlayer && cells[7].textContent===whosPlayer) {
-        textWinner.textContent = `${whosPlayer} is the Winner`
-        thereIsAWinner = true
+    if(cells[3].textContent===whosPlayer) {
+        if(cells[0].textContent===whosPlayer && cells[6].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+        else if(cells[4].textContent===whosPlayer && cells[5].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
     }
-    else if (cells[3].textContent===whosPlayer && cells[4].textContent===whosPlayer && cells[5].textContent===whosPlayer) {
-        textWinner.textContent = `${whosPlayer} is the Winner`
-        thereIsAWinner = true
+    if(cells[4].textContent===whosPlayer) {
+        if(cells[1].textContent===whosPlayer && cells[7].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+        else if(cells[3].textContent===whosPlayer && cells[5].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+        else if(cells[0].textContent===whosPlayer && cells[8].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+        else if(cells[2].textContent===whosPlayer && cells[6].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
     }
+    if(cells[5].textContent===whosPlayer) {
+        if(cells[3].textContent===whosPlayer && cells[4].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+        else if(cells[2].textContent===whosPlayer && cells[8].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+    }
+    if(cells[6].textContent===whosPlayer) {
+        if(cells[0].textContent===whosPlayer && cells[3].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+        else if(cells[7].textContent===whosPlayer && cells[8].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+        else if(cells[4].textContent===whosPlayer && cells[2].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+    }
+    if(cells[7].textContent===whosPlayer) {
+        if(cells[4].textContent===whosPlayer && cells[1].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+        else if(cells[6].textContent===whosPlayer && cells[8].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+    }
+    if(cells[8].textContent===whosPlayer) {
+        if(cells[5].textContent===whosPlayer && cells[2].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+        else if(cells[7].textContent===whosPlayer && cells[6].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+        else if(cells[4].textContent===whosPlayer && cells[0].textContent===whosPlayer)
+        {
+            textWinner.textContent = `${whosPlayer} is the Winner`
+            thereIsAWinner = true
+        }
+    }
+    
 }
 cellClicked()
