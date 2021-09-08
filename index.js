@@ -1,8 +1,9 @@
+// get every cells or div in the HTML file and put in a array
 const cells = Array.from(document.getElementsByClassName('cell'))
 let textWinner = document.querySelector('#text-winner')
 let textTurn = document.querySelector('p.players-turn')
-let player = 'X' 
-let counter = 1
+let player = 'X'  // initialize player x as the first one to turn.
+let counter = 1 // counter is use to determin if the game is draw
 let thereIsAWinner = false
 
 const cellClicked = () => {
@@ -13,25 +14,27 @@ const cellClicked = () => {
 }
 
 function onGame (index) {
-    // indices throws the index/ID as number
-    indices = parseInt(index.target.id)
+    indices = parseInt(index.target.id)     // indices throws the index/ID as number
     if (thereIsAWinner===false && cells[indices].textContent==='') {
         if (player === 'X') {
             index.target.textContent = player;
-            console.log(counter++)
+            counter++
             checkBoard(player)
             player = 'O'
             textTurn.textContent = `${player} Turn!`
         }
         else if (player==='O') {
             index.target.textContent = player;
-            console.log(counter++)
+            counter++
             checkBoard(player)
             player = 'X'
             textTurn.textContent = `${player} Turn!`
-            
+        }
+        else if (counter===9 && thereIsAWinner === false) {
+            textWinner.textContent = "DRAW"
         }
     }
+    //Check if the cells or div is already contained a text
     else if (cells[indices].textContent!== '' && counter !== 10 && thereIsAWinner===false) {
         alert("Box already Contain")
     }
@@ -44,6 +47,7 @@ function onGame (index) {
             counter = 1
         })
     }
+    // Displaying of DRAW is delayed as player needs to click a cell before it is triggered
     else {
         textWinner.textContent = 'DRAW'
         cells.forEach(cell => {
@@ -54,7 +58,9 @@ function onGame (index) {
     }
 }
 function checkBoard (whosPlayer) {
-    //check vertical and horizontal starting point at top-right div
+    /* HARD CODED:
+        Check every posibilities of winning each cells.
+    */
     if(cells[0].textContent===whosPlayer) {
         if(cells[1].textContent===whosPlayer && cells[2].textContent===whosPlayer)
         {
